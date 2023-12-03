@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Регистрация</title>
+</head>
+<body>
+    <div id="creating_order">
+        <h1 id="title_create">Создание заказа</h1>
+
+        <p>Тип заказа:</p>
+        <div id="order_type">
+            <input type="radio" name="field_order_type" id="boosts">
+            <label for="boosts">Бусты</label>
+            <input type="radio" name="field_order_type" id="subs">
+            <label for="subs">Premium подписчики</label>
+        </div>
+
+        <p>Тип канала:</p>
+        <div id="channel_type">
+            <input type="radio" name="field_channel_type" id="public">
+            <label for="public">Открытый</label>
+            <input type="radio" name="field_channel_type" id="private">
+            <label for="private">Закрытый</label>
+        </div>
+
+        <p>Введите ссылку на канал:</p>
+        <div id="channel_url_block">
+            <input type="text" placeholder="t.me/" id="channel_url" oninput="addChannelURLCookies()">
+        </div>
+
+        <p>Введите ссылку для буста канала:</p>
+        <div id="boost_url_block">
+            <input type="text" placeholder="t.me/.....?boost" id="boost_url" oninput="addBoostURLCookies()">
+        </div>
+
+        <div id="amount_block">
+            <p id="amount_title">Выберите количество:</p>
+            <div id="subs_amount">
+                <input type="radio" name="field1" id="amount_1" value="10">
+                <label for="amount_1">10</label>
+                <input type="radio" name="field1" id="amount_2" value="20">
+                <label for="amount_2">20</label>
+                <input type="radio" name="field1" id="amount_3" value="30">
+                <label for="amount_3">30</label>
+            </div>
+        </div>
+
+        <p id="error"></p>
+        <div id="next_button">
+            <button>Продолжить</button>
+        </div>
+    </div>
+
+    <div id="order_prewiev">
+        <h1>Ваш заказ</h1>
+        <p id="order_type_preview"></p>
+        <p id="channel_type_preview"></p>
+        <p id="channel_url_preview"></p>
+        <p id="boost_url_preview"></p>
+        <div id="create_button">
+            <button>Создать заказ</button>
+        </div>
+    </div>
+
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
