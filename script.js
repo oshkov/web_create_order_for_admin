@@ -211,9 +211,6 @@ nextButton.addEventListener('click', () => {
 
 createButton.addEventListener('click', () => {
     let data = {
-        id: tg.initDataUnsafe.user.id,
-        username: tg.initDataUnsafe.user.username,
-        name: tg.initDataUnsafe.user.first_name,
         order_type: order_type,
         channel_type: channel_type,
         channel_url: channel_url,
