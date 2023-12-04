@@ -4,15 +4,75 @@
     padding: 0;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--tg-theme-text-color);
-    background: var(--tg-theme-bg-color);
+html {
+    padding: 0;
 }
 
-h1, p {
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    background: white;
+    padding: 5%;
+}
+
+h1 {
+    margin: 30px 0 0 0;
     text-align: center;
+}
+
+p {
+    font-size: 20px;
     margin-top: 40px;
+}
+
+#amount_choice {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#amount_block_mini {
+    width: 24%;
+    margin-bottom: 20px;
+    padding: 4%;
+    border-radius: 15px;
+    background-color: rgb(223, 223, 223);
+}
+
+.amount_1 {
+    margin-right: 2%;
+}
+
+.amount_3 {
+    margin-left: 2%;
+}
+
+input.radio {
+    appearance: none;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgb(153, 153, 153);
+    transition: 0.1s all linear;
+    margin-right: 5px;
+    position: relative;
+    top: 3px;
+}
+
+input.radio:checked {
+    border: 6px solid rgb(0, 0, 0);
+}
+
+input.url {
+    width: 92%;
+    padding: 3%;
+    font-size: 18px;
+}
+
+#block {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: rgb(223, 223, 223);
 }
 
 #order_type, #channel_type, #boost_amount, #subs_amount {
@@ -40,6 +100,31 @@ h1, p {
 }
 
 #error {
+    text-align: center;
     color: red;
     margin: 0;
+}
+
+button {
+    background-color: rgb(2, 139, 57);
+    border-radius: 15px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px auto 60px auto;
+}
+
+#order {
+    margin-top: 10%;
+    padding: 5%;
+    background-color: rgb(223, 223, 223);
+    border-radius: 15px;
+}
+
+.preview {
+    margin: 10px;
 }

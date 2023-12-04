@@ -12,43 +12,60 @@
 
         <p>Тип заказа:</p>
         <div id="order_type">
-            <input type="radio" name="field_order_type" id="boosts">
-            <label for="boosts">Бусты</label>
-            <input type="radio" name="field_order_type" id="subs">
-            <label for="subs">Premium подписчики</label>
+            <div id="block">
+                <input type="radio" name="field_order_type" id="boosts" class="radio">
+                <label for="boosts">🚀 Бусты на канал</label>
+            </div>
+            <div id="block">
+                <input type="radio" name="field_order_type" id="subs" class="radio">
+                <label for="subs">💎 Premium подписчики</label>
+            </div>
         </div>
 
         <p>Тип канала:</p>
         <div id="channel_type">
-            <input type="radio" name="field_channel_type" id="public">
-            <label for="public">Открытый</label>
-            <input type="radio" name="field_channel_type" id="private">
-            <label for="private">Закрытый</label>
+            <div id="block">
+                <input type="radio" name="field_channel_type" id="public" class="radio">
+                <label for="public">Открытый</label>
+            </div>
+            <div id="block">
+                <input type="radio" name="field_channel_type" id="private" class="radio">
+                <label for="private">Закрытый</label>
+            </div>
         </div>
 
         <p>Введите ссылку на канал:</p>
         <div id="channel_url_block">
-            <input type="text" placeholder="t.me/" id="channel_url" oninput="addChannelURLCookies()">
+            <input type="text" placeholder="t.me/" id="channel_url" oninput="addChannelURLCookies()" class="url">
         </div>
 
         <p>Введите ссылку для буста канала:</p>
         <div id="boost_url_block">
-            <input type="text" placeholder="t.me/.....?boost" id="boost_url" oninput="addBoostURLCookies()">
+            <input type="text" placeholder="t.me/.....?boost" id="boost_url" oninput="addBoostURLCookies()" class="url">
         </div>
 
         <div id="amount_block">
             <p id="amount_title">Выберите количество:</p>
             <div id="subs_amount">
-                <input type="radio" name="field1" id="amount_1" value="10">
-                <label for="amount_1">10</label>
-                <input type="radio" name="field1" id="amount_2" value="20">
-                <label for="amount_2">20</label>
-                <input type="radio" name="field1" id="amount_3" value="30">
-                <label for="amount_3">30</label>
+                <div id="amount_choice">
+                    <div id="amount_block_mini" class="amount_1">
+                        <input type="radio" name="field1" id="amount_1" value="10" class="radio">
+                        <label for="amount_1">10</label>
+                    </div>
+                    <div id="amount_block_mini">
+                        <input type="radio" name="field1" id="amount_2" value="20" class="radio">
+                        <label for="amount_2">20</label>
+                    </div>
+                    <div id="amount_block_mini" class="amount_3">
+                        <input type="radio" name="field1" id="amount_3" value="30" class="radio">
+                        <label for="amount_3">30</label>
+                    </div>
+                </div>
             </div>
         </div>
 
         <p id="error"></p>
+
         <div id="next_button">
             <button>Продолжить</button>
         </div>
@@ -56,10 +73,12 @@
 
     <div id="order_prewiev">
         <h1>Ваш заказ</h1>
-        <p id="order_type_preview"></p>
-        <p id="channel_type_preview"></p>
-        <p id="channel_url_preview"></p>
-        <p id="boost_url_preview"></p>
+        <div id="order">
+            <p class="preview" id="order_type_preview"></p>
+            <p class="preview" id="channel_type_preview"></p>
+            <p class="preview" id="channel_url_preview"></p>
+            <p class="preview" id="boost_url_preview"></p>
+        </div>
         <div id="create_button">
             <button>Создать заказ</button>
         </div>

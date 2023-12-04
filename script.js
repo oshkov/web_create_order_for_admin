@@ -25,7 +25,6 @@ let createButton = document.getElementById('create_button')
 
 let orderTypePreview = document.getElementById('order_type_preview')
 let channelTypePreview = document.getElementById('channel_type_preview')
-let channelURLPreview = document.getElementById('channel_url_preview')
 let boostURLPreview = document.getElementById('boost_url_preview')
 
 let order_type
@@ -82,41 +81,41 @@ switch (getCookie('amount')) {
 // Ввод данных
 // сохранение в куки ссылки на канал
 function addChannelURLCookies() {
-    document.cookie = `channel_url = ${inputChannelURL.value}; max-age=5`
+    document.cookie = `channel_url = ${inputChannelURL.value}; max-age=1200`
 }
 
 // созранение в куки ссылки на буст
 function addBoostURLCookies() {
-    document.cookie = `boost_url = ${inputBoostURL.value}; max-age=5`
+    document.cookie = `boost_url = ${inputBoostURL.value}; max-age=1200`
 }
 
 // сохранение в куки типа закза
 inputBoost.addEventListener('input', () => {
     amountTitle.textContent = 'Выберите количество бустов:'
-    document.cookie = `order_type = boosts; max-age=5`
+    document.cookie = `order_type = boosts; max-age=1200`
 });
 inputPremSubs.addEventListener('input', () => {
     amountTitle.textContent = 'Выберите количество подписчиков:'
-    document.cookie = `order_type = subs; max-age=5`
+    document.cookie = `order_type = subs; max-age=1200`
 });
 
 // сохранение в куки типа канала
 inputPublic.addEventListener('input', () => {
-    document.cookie = `channel_type = Public; max-age=5`
+    document.cookie = `channel_type = Public; max-age=1200`
 });
 inputPrivate.addEventListener('input', () => {
-    document.cookie = `channel_type = Private; max-age=5`
+    document.cookie = `channel_type = Private; max-age=1200`
 });
 
 // сохранение в куки объема заказа
 inputAmount1.addEventListener('input', () => {
-    document.cookie = `amount = ${amount_1}; max-age=5`
+    document.cookie = `amount = ${amount_1}; max-age=1200`
 });
 inputAmount2.addEventListener('input', () => {
-    document.cookie = `amount = ${amount_2}; max-age=5`
+    document.cookie = `amount = ${amount_2}; max-age=1200`
 });
 inputAmount3.addEventListener('input', () => {
-    document.cookie = `amount = ${amount_3}; max-age=5`
+    document.cookie = `amount = ${amount_3}; max-age=1200`
 });
 
 
@@ -143,14 +142,14 @@ nextButton.addEventListener('click', () => {
     // Проверка ссылки на канал
     let channelURL = inputChannelURL.value
     if (channelURL.includes('t.me') === false) {
-        document.getElementById('error').textContent = 'Ссылка должна содержать в себе t.me'
+        document.getElementById('error').textContent = 'Ссылка на канал должна содержать в себе t.me'
         return
     }
 
     // Проверка ссылки на буст
     let boostURL = inputBoostURL.value
     if (boostURL.includes('?boost') === false) {
-        document.getElementById('error').textContent = 'Ссылка должна содержать в себе ?boost'
+        document.getElementById('error').textContent = 'Ссылка для буста должна содержать в себе ?boost'
         return
     }
 
@@ -212,6 +211,9 @@ nextButton.addEventListener('click', () => {
 
 createButton.addEventListener('click', () => {
     let data = {
+        id: tg.initDataUnsafe.user.id,
+        username: tg.initDataUnsafe.user.username,
+        name: tg.initDataUnsafe.user.first_name,
         order_type: order_type,
         channel_type: channel_type,
         channel_url: channel_url,
@@ -222,7 +224,3 @@ createButton.addEventListener('click', () => {
     tg.sendData(JSON.stringify(data));
     tg.close();
 })
-
-
-// tg.setItem('key', 'value')
-// tg.getItem('key')
